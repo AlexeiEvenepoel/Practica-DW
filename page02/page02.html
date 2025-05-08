@@ -1,11 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Ventana de Volumen</title>
+  <link rel="stylesheet" href="page02.css">
 </head>
 <body>
-    
+  <!-- Ventana con sliders de volumen -->
+  <div class="window">
+    <div class="window-header">
+      <div class="header-icons">
+        <!-- Sol / Brillo -->
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5" />
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+        </svg>
+
+        <!-- Puntero sobre triángulo -->
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l7 19-7-4-7 4z" />
+        </svg>
+
+        <!-- Portapapeles -->
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+        </svg>
+
+        <!-- Código / <> -->
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+      </div>
+    </div>
+
+    <div class="form">
+      <label for="mediaVolume">Media volume</label>
+      <div class="slider-field">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5l-5 5H3z" fill="white"/></svg>
+        <input type="range" id="mediaVolume" min="0" max="100" value="50">
+      </div>
+
+      <label for="alarmVolume">Alarm volume</label>
+      <div class="slider-field">
+        <input type="range" id="alarmVolume" min="0" max="100" value="30">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 4V1m0 0a9 9 0 1 0 9 9h-3a6 6 0 1 1-6-6z" fill="white"/></svg>
+      </div>
+
+      <label for="callbackVolume">Icon click callback</label>
+      <div class="slider-field">
+        <svg class="icon" viewBox="0 0 24 24">
+          <circle cx="10" cy="10" r="6" stroke="white" stroke-width="2" fill="none"/>
+          <line x1="14" y1="14" x2="20" y2="20" stroke="white" stroke-width="2"/>
+        </svg>
+        <input type="range" id="callbackVolume" min="0" max="100" value="70">
+        <svg class="icon" viewBox="0 0 24 24">
+          <circle cx="10" cy="10" r="6" stroke="white" stroke-width="2" fill="none"/>
+          <line x1="14" y1="14" x2="20" y2="20" stroke="white" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card de color RGB -->
+  <div class="color-card">
+    <div class="color-preview" id="colorPreview"></div>
+    <div class="color-controls">
+      <div class="control-group">
+        <label>R</label>
+        <input type="range" id="rRange" min="0" max="255" value="80">
+        <input type="number" id="rNumber" min="0" max="255" value="80">
+      </div>
+      <div class="control-group">
+        <label>G</label>
+        <input type="range" id="gRange" min="0" max="255" value="165">
+        <input type="number" id="gNumber" min="0" max="255" value="165">
+      </div>
+      <div class="control-group">
+        <label>B</label>
+        <input type="range" id="bRange" min="0" max="255" value="92">
+        <input type="number" id="bNumber" min="0" max="255" value="92">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const rRange = document.getElementById('rRange');
+    const gRange = document.getElementById('gRange');
+    const bRange = document.getElementById('bRange');
+
+    const rNumber = document.getElementById('rNumber');
+    const gNumber = document.getElementById('gNumber');
+    const bNumber = document.getElementById('bNumber');
+
+    const preview = document.getElementById('colorPreview');
+
+    function updateColor() {
+      const r = parseInt(rRange.value);
+      const g = parseInt(gRange.value);
+      const b = parseInt(bRange.value);
+      preview.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+      rNumber.value = r;
+      gNumber.value = g;
+      bNumber.value = b;
+    }
+
+    function syncFromNumber() {
+      rRange.value = rNumber.value;
+      gRange.value = gNumber.value;
+      bRange.value = bNumber.value;
+      updateColor();
+    }
+
+    rRange.addEventListener('input', updateColor);
+    gRange.addEventListener('input', updateColor);
+    bRange.addEventListener('input', updateColor);
+
+    rNumber.addEventListener('input', syncFromNumber);
+    gNumber.addEventListener('input', syncFromNumber);
+    bNumber.addEventListener('input', syncFromNumber);
+
+    updateColor();
+  </script>
 </body>
 </html>
