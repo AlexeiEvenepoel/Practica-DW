@@ -1,0 +1,107 @@
+body {
+  background-color: #1e1e1e;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+.window {
+  width: 700px;
+  background-color: #121212;
+  border: 1px solid #333;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 40px; /* Espacio para separar del card de abajo */
+}
+
+.window-header {
+  background-color: #444;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-icons .icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+  fill: white;
+}
+
+.form {
+  padding: 20px;
+}
+
+.form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+.slider-field {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+
+.slider-field input[type="range"] {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+/* === Parte B - Card de color RGB === */
+.color-card {
+  width: 400px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #1e1e1e;
+}
+
+.color-preview {
+  height: 200px;
+  background-color: rgb(80, 165, 92);
+  border-radius: 5px 5px 0 0;
+}
+
+.color-controls {
+  padding: 20px;
+  background-color: #121212;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.control-group label {
+  width: 20px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.control-group input[type="range"] {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.control-group input[type="number"] {
+  width: 60px;
+  background-color: #222;
+  border: 1px solid #555;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+}
