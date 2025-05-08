@@ -29,13 +29,8 @@ h1 {
   width: 200px;
   height: 200px;
   cursor: pointer;
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
+  perspective: 1000px;
 }
 
 /* Add colored shadows based on column position */
@@ -52,6 +47,40 @@ h1 {
 .card:nth-child(3n + 3) {
   /* Third column - green shadow */
   box-shadow: 0 5px 15px rgba(42, 94, 42, 0.6);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+/* The rotation effect on both axes on hover */
+.card:hover .card-inner {
+  transform: rotateY(180deg) rotateX(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card-front,
+.card-back {
+  background-image: url("page03/images/page03img.avif");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Position the back face */
+.card-back {
+  transform: rotateY(180deg) rotateX(180deg);
 }
 
 /* Color overlays for cards */
@@ -128,12 +157,6 @@ h1 {
   text-decoration: none;
   font-size: 0.8rem;
   text-transform: uppercase;
-}
-
-/* Add hover effect for cards */
-.card:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s ease;
 }
 
 /* Media queries for responsiveness */
