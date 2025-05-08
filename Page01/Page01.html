@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Campo de Imagen</title>
+    <link rel="stylesheet" href="Page01.css">
+</head>
+<body>
+    <div class="form-container">
+        <form class="animated-form">
+            <div class="form-group">
+                <input type="text" id="name" required>
+                <label for="name">Name</label>
+                <div class="underline"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="email" id="email" required>
+                <label for="email">E-mail</label>
+                <div class="underline"></div>
+            </div>
+
+            <div class="form-group">
+                <input type="text" id="item" required>
+                <label for="item">Item</label>
+                <div class="underline"></div>
+            </div>
+
+            <div class="image-upload-group">
+                <input type="file" id="image-upload" accept="image/*" class="image-input" required>
+                <label for="image-upload" class="image-label">
+                    <svg class="image-icon" viewBox="0 0 24 24">
+                        <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4.86 8.86l-3 3.87L9 13.14 6 17h12l-3.86-5.14z"/>
+                    </svg>
+                    <span class="image-text">Arrastra una imagen o haz clic</span>
+                    <span class="file-name"></span>
+                </label>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="agree" required>
+                <label for="agree">Do you agree?</label>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn submit-btn">SUBMIT</button>
+                <button type="reset" class="btn clear-btn">CLEAR</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
