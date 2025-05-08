@@ -1,0 +1,243 @@
+/* Estilos generales en modo oscuro */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #d4d4d4; /* Texto claro */
+}
+
+.form-container {
+    background-color: #252526; /* Contenedor del formulario más oscuro */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* Estilos para las etiquetas */
+.form-group label {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    color: #9cdcfe; /* Color de etiqueta más claro */
+    font-size: 16px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Estilos para los inputs */
+.form-group input {
+    width: 100%;
+    padding: 8px 0;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #569cd6; /* Línea inferior del input más clara */
+    background-color: transparent;
+    outline: none;
+    color: #d4d4d4; /* Texto del input claro */
+}
+
+/* Subrayado animado */
+.form-group .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #007acc; /* Color del subrayado activo */
+    transition: all 0.3s ease;
+}
+
+/* Efectos cuando el input está enfocado */
+.form-group input:focus ~ label,
+.form-group input:valid ~ label {
+    transform: translateY(-25px);
+    font-size: 14px;
+    color: #007acc; /* Color de etiqueta activa */
+}
+
+.form-group input:focus ~ .underline,
+.form-group input:valid ~ .underline {
+    width: 100%;
+}
+
+/* Estilos para el select */
+.form-group select {
+    width: 100%;
+    padding: 8px 15px;
+    font-size: 16px;
+    border: 1px solid #569cd6;
+    border-radius: 4px;
+    background-color: #252526;
+    color: #d4d4d4;
+    outline: none;
+    appearance: none; /* Oculta la flecha por defecto */
+    -webkit-appearance: none; /* Para navegadores Safari y Chrome */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="#d4d4d4" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+}
+
+.form-group select:focus {
+    border-color: #007acc;
+}
+
+/* Estilos para el checkbox */
+.checkbox-group {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    accent-color: #007acc; /* Color de la marca del checkbox */
+}
+
+.checkbox-group label {
+    color: #d4d4d4;
+    font-size: 16px;
+}
+
+/* Estilos para los botones */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.submit-btn {
+    background-color: #007acc; /* Botón de submit azul */
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #005ea3; /* Hover más oscuro */
+}
+
+.clear-btn {
+    background-color: #3b3b3b; /* Botón de clear gris oscuro */
+    color: #d4d4d4;
+}
+
+.clear-btn:hover {
+    background-color: #525252; /* Hover más claro */
+}
+
+/* Estilos para el campo de imagen */
+.image-upload-group {
+    position: relative;
+    margin-bottom: 30px;
+    height: 50px;
+}
+
+.image-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.image-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #569cd6; /* Borde dashed más claro */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-label:hover {
+    border-color: #007acc;
+    background-color: rgba(0, 122, 204, 0.1); /* Fondo hover azul tenue */
+}
+
+.image-icon {
+    width: 24px;
+    height: 24px;
+    fill: #9cdcfe; /* Icono más claro */
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.image-text {
+    color: #9cdcfe; /* Texto más claro */
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.file-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #007acc; /* Nombre del archivo activo */
+    font-size: 12px;
+    padding: 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: none;
+}
+
+/* Efectos cuando se arrastra sobre el área */
+.image-label.drag-over {
+    border-color: #007acc;
+    background-color: rgba(0, 122, 204, 0.2); /* Fondo drag over más intenso */
+}
+
+.image-label.drag-over .image-icon,
+.image-label.drag-over .image-text {
+    color: #007acc;
+    fill: #007acc;
+}
+
+/* Cuando hay un archivo seleccionado */
+.image-input:focus ~ .image-label,
+.image-input:valid ~ .image-label {
+    border-color: #007acc;
+}
+
+.image-input:focus ~ .image-label .image-icon,
+.image-input:focus ~ .image-label .image-text,
+.image-input:valid ~ .image-label .image-icon,
+.image-input:valid ~ .image-label .image-text {
+    color: #007acc;
+    fill: #007acc;
+    transform: translateY(-10px);
+}
+
+.image-input:valid ~ .image-label .file-name {
+    display: block;
+}
